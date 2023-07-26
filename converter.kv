@@ -1,0 +1,69 @@
+<MyOwn@MDLabel>
+    font_size: '25sp'
+    haling: 'left'
+    valing: 'middle'
+    text_size: self.size
+
+<Container>:
+    rows: 3
+    text_input: text_input
+    label_hours: label_hours
+    label_minutes: label_minutes
+    label_seconds: label_seconds
+
+    AnchorLayout:
+        anchor_y: 'top'
+        size_hint: .9, .2
+
+        MDTextField:
+            text: ''
+            id: text_input
+            font_size: '30sp'
+            input_filter: 'int'
+            input_type: 'number'
+            multiline: False
+            hint_text: 'Введите число'
+
+    GridLayout:
+        cols: 2
+        padding: [40, 0, 0, 0]
+
+        BoxLayout:
+            orientation: 'vertical'
+
+            MyOwn:
+                text: 'Часы'
+
+            MyOwn:
+                text: 'Минуты '
+
+            MyOwn:
+                text: 'Секунды'
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: .5, 1
+
+            MyOwn:
+                text: '0'
+                id: label_hours
+
+            MyOwn:
+                text: '0'
+                id: label_minutes
+
+            MyOwn:
+                text: '0'
+                id: label_seconds
+
+
+    BoxLayout:
+        size_hint: .9, .3
+        padding: [30, 20, 30, 20]
+
+        MDRaisedButton:
+            text: 'Нажми!'
+            #font_size: 40
+            size_hint: .5, .3
+            #pos_hint: {'center_x': .5, 'center_y': .5}
+            on_release:
+                root.convert()
